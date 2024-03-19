@@ -1,0 +1,158 @@
+:root {
+  --primary: rgb(139, 172, 218);
+  --secondary: rgb(0, 255, 247);
+  --overlayImage: rgba(0, 255, 247, 0.5);
+  --mainBackground: rgb(13, 25, 43);
+  --cardBackground: rgb(20, 37, 61);
+  --line: rgb(47, 65, 91);
+  --white: rgb(255, 255, 255);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color: var(--primary);
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+}
+
+body {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  background: var(--mainBackground);
+  padding-right: 24px;
+  padding-left: 24px;
+  min-height: 100vh;
+}
+
+.card {
+  box-shadow: 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  background: var(--cardBackground);
+  padding: 24px;
+}
+
+.card__image {
+  position: relative;
+  cursor: pointer;
+}
+
+.card__image-image {
+  border-radius: 8px;
+  width: 100%;
+}
+
+.card__image:hover::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border-radius: 8px;
+  background: url("/images/icon-view.svg") no-repeat center, var(--overlayImage);
+  min-width: 100%;
+  min-height: 100%;
+  content: "";
+}
+
+.card__title {
+  cursor: pointer;
+  margin: 24px 0 12px;
+  color: var(--white);
+  font-weight: 600;
+  font-size: 22px;
+}
+.card__title:hover,
+.card__title:active {
+  color: var(--secondary);
+}
+
+@media (hover: hover) {
+}
+
+.card__description {
+  margin-bottom: 16px;
+  line-height: 26px;
+}
+
+.card__price-time-left {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__price-icon,
+.card__time-left-icon {
+  display: flex;
+  align-items: center;
+}
+
+.card__icon-eth,
+.card__icon-clock {
+  margin-right: 7px;
+}
+
+.card__icon-eth {
+  height: 18px;
+}
+
+.card__icon-clock {
+  height: 16px;
+}
+
+.card__price {
+  color: var(--secondary);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.card__time-left {
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.card__divider {
+  margin: 16px 0 16px;
+  border: none;
+  background: var(--line);
+  height: 1px;
+}
+
+.card__author {
+  display: flex;
+  align-items: center;
+}
+
+.card__author-avatar {
+  margin-right: 16px;
+  border: 1px solid var(--white);
+  border-radius: 50%;
+  width: 33px;
+}
+
+.card__author-name {
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.card__name {
+  cursor: pointer;
+  color: var(--white);
+}
+
+.card__name:hover,
+.card__name:active {
+  color: var(--secondary);
+}
+
+@media only screen and (min-width: 390px) {
+  .card {
+    width: 380px;
+  }
+}
